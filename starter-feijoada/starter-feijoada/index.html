@@ -1,111 +1,182 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 -->
 <html lang="pt-BR">
+<!-- Início do documento HTML com idioma português brasileiro -->
+
 <head>
+  <!-- Seção head: contém metadados da página -->
   <meta charset="UTF-8" />
+  <!-- Define a codificação de caracteres como UTF-8 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Configura a viewport para dispositivos móveis -->
   <meta name="description" content="Casa da Feijoada — A tradicional feijoada brasileira como você gosta. Site acessível com HTML semântico, CSS e JavaScript." />
+  <!-- Descrição da página para motores de busca -->
   <title>Casa da Feijoada | A tradicional feijoada brasileira como você gosta</title>
+  <!-- Título da página exibido na aba do navegador -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Link para o arquivo CSS externo -->
 </head>
+
 <body>
+  <!-- Corpo da página: contém todo o conteúdo visível -->
+
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <!-- Link de acessibilidade para pular diretamente ao conteúdo principal -->
 
   <header class="site-header" role="banner">
+    <!-- Cabeçalho do site: logotipo e navegação -->
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Casa da Feijoada - Página inicial">
+        <!-- Logotipo do site com emoji e texto -->
         <span class="logo-emoji" aria-hidden="true">🍲</span>
         <span>Casa da Feijoada</span>
       </a>
       <nav aria-label="Navegação principal">
+        <!-- Navegação principal com links para seções -->
         <ul class="nav-list">
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
+      <button type="button" class="cart-toggle" aria-label="Abrir carrinho de pedidos">
+        🛒 <span id="cart-count">0</span>
+      </button>
     </div>
   </header>
 
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" hidden>
+    <div class="cart-panel-header">
+      <h2 id="cart-title">Seu carrinho</h2>
+      <button type="button" id="cart-close" class="cart-close" aria-label="Fechar carrinho">✕</button>
+    </div>
+    <p class="cart-summary" id="cart-quantity">0 itens</p>
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty">Seu carrinho está vazio. Adicione um item para começar.</p>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong id="cart-total">R$ 0,00</strong>
+    </div>
+    <button type="button" class="btn btn-primary cart-checkout" id="cart-checkout">Finalizar pedido</button>
+  </aside>
+
   <main id="conteudo">
+    <!-- Conteúdo principal da página -->
+
     <section class="hero" aria-labelledby="hero-titulo">
+      <!-- Seção hero: apresentação inicial do site -->
       <div class="container">
         <h1 id="hero-titulo">Casa da Feijoada</h1>
+        <!-- Título principal -->
         <p class="hero-tagline">A tradicional feijoada brasileira como você gosta</p>
+        <!-- Slogan ou tagline -->
         <a href="#cardapio" class="btn btn-primary">Ver cardápio</a>
+        <!-- Botão para ver o cardápio -->
       </div>
     </section>
 
     <section id="sobre" aria-labelledby="sobre-titulo" class="section">
+      <!-- Seção sobre: informações sobre o restaurante -->
       <div class="container">
         <h2 id="sobre-titulo">Sobre nós</h2>
-        <p>Restaurante simples e aconchegante, conhecido pela feijoada saborosa e bem servida. Ideal para um almoço típico brasileiro.
-</p>.</p>
+        <!-- Título da seção sobre -->
+        <p>Restaurante simples e aconchegante, conhecido pela feijoada saborosa e bem servida. Ideal para um almoço típico brasileiro.</p>
+        <!-- Descrição do restaurante -->
       </div>
     </section>
 
     <section id="cardapio" aria-labelledby="cardapio-titulo" class="section section-alt">
+      <!-- Seção cardápio: lista de pratos e bebidas -->
       <div class="container">
         <h2 id="cardapio-titulo">Nosso cardápio</h2>
+        <!-- Título da seção cardápio -->
         <p class="section-intro">Escolha seus favoritos. Use os botões para adicionar ao pedido.</p>
+        <!-- Introdução ao cardápio -->
         <div class="cards-grid" role="list">
-        <article class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <h3>Feijoada Individual</h3>
-          <p>Feijoada individual acompanhada de arroz, couve, farofa e laranja. Sabor caseiro em uma porção na medida certa.</p>
-          <p class="price">R$ <span>28,00</span></p>
-          <button type="button" class="btn-add" aria-label="Adicionar Feijoada Individual ao pedido">Adicionar</button>
-        </article>
-        <article class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <h3>Feijoada para 2</h3>
-          <p>Feijoada para 2 pessoas, acompanhada de arroz, couve refogada, farofa crocante e fatias de laranja.</p>
-          <p class="price">R$ <span>40,00</span></p>
-          <button type="button" class="btn-add" aria-label="Adicionar Feijoada para 2 ao pedido">Adicionar</button>
-        </article>
-        <article class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <h3>Feijoada Família</h3>
-          <p>Feijoada tamanho família, feita com feijão preto, carnes selecionadas, linguiça e bacon, acompanhada de arroz, couve refogada, farofa e laranja.</p>
-          <p class="price">R$ <span>80,00</span></p>
-          <button type="button" class="btn-add" aria-label="Adicionar Feijoada Família ao pedido">Adicionar</button>
-        </article>
-        <article class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <h3>Caipirinha</h3>
-          <p>Caipirinha Alcoólica:
-Drink refrescante feito com limão fresco, açúcar, gelo e cachaça.
+          <!-- Grade de cards para os itens do menu -->
 
-Caipirinha Sem Álcool:
-Bebida leve e refrescante preparada com limão fresco, açúcar e gelo.</p>
-          <p class="price">R$ <span>15,00</span></p>
-          <p class="price">R$ <span>10,00</span></p>
-          <button type="button" class="btn-add" aria-label="Adicionar Caipirinha ao pedido">Adicionar</button>
-        </article>
-        <article class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <h3>Porçaõ de couve Refogada</h3>
-          <p>Couve refogada no alho e azeite.</p>
-          <p class="price">R$ <span>8,00</span></p>
-          <button type="button" class="btn-add" aria-label="Adicionar Couve Refogada ao pedido">Adicionar</button>
-        </article>
-        <article class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <h3>Farofa Especial</h3>
-          <p>Farofa especial feita com farinha de mandioca torrada, bacon em cubos, cebola, alho, manteiga e temperos caseiros.</p>
-          <p class="price">R$ <span>10,00</span></p>
-          <button type="button" class="btn-add" aria-label="Adicionar Farofa Especial ao pedido">Adicionar</button>
-        </article>
+          <article class="card">
+            <!-- Card para Feijoada Individual -->
+            <div class="card-emoji" aria-hidden="true">🍲</div>
+            <h3>Feijoada Individual</h3>
+            <img src="../starter-feijoada/imagens/img2.jpeg" alt="Feijoada individual com arroz, couve, farofa e laranja">
+            <p>Feijoada individual acompanhada de arroz, couve, farofa e laranja. Sabor caseiro em uma porção na medida certa.</p>
+            <p class="price">R$ <span>28,00</span></p>
+            <button type="button" class="btn-add" aria-label="Adicionar Feijoada Individual ao pedido">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <!-- Card para Feijoada para 2 -->
+            <div class="card-emoji" aria-hidden="true">🍲</div>
+            <h3>Feijoada para 2</h3>
+            <img src="../starter-feijoada/imagens/img5.jpeg" alt="Feijoada para 2 pessoas">
+            <p>Feijoada para 2 pessoas, acompanhada de arroz, couve refogada, farofa crocante e fatias de laranja.</p>
+            <p class="price">R$ <span>40,00</span></p>
+            <button type="button" class="btn-add" aria-label="Adicionar Feijoada para 2 ao pedido">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <!-- Card para Feijoada Família -->
+            <div class="card-emoji" aria-hidden="true">🍲</div>
+            <h3>Feijoada Família</h3>
+            <img src="../starter-feijoada/imagens/img7.jpg" alt="Feijoada tamanho família">
+            <p>Feijoada para a familia tofa, acompanhada de arroz, couve refogada, farofa crocante e fatias de laranja.</p>
+            <p class="price">R$ <span>80,00</span></p>
+            <button type="button" class="btn-add" aria-label="Adicionar Feijoada Família ao pedido">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <!-- Card para Caipirinha -->
+            <div class="card-emoji" aria-hidden="true">🍸</div>
+            <h3>Caipirinha</h3>
+            <img src="../starter-feijoada/imagens/img8.jpg" alt="Caipirinha alcoólica e sem álcool">
+            <p>Caipirinha Alcoólica:<br>
+              Drink refrescante feito com limão fresco, açúcar, gelo e cachaça.<br><br>
+              Caipirinha Sem Álcool:<br>
+              Bebida leve e refrescante preparada com limão fresco, açúcar e gelo.</p>
+            <p class="price">R$ <span>20,00</span></p>
+            <p class="price">R$ <span>25,00</span></p>
+            <button type="button" class="btn-add" aria-label="Adicionar Caipirinha ao pedido">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <!-- Card para Porção de Couve Refogada -->
+            <div class="card-emoji" aria-hidden="true">🥗</div>
+            <h3>Couve Refogada</h3>
+            <img src="../starter-feijoada/imagens/img13.jpeg" alt="Porção de couve refogada">
+            <p>Couve refogada no alho e azeite.</p>
+            <p class="price">R$ <span>8,00</span></p>
+            <button type="button" class="btn-add" aria-label="Adicionar Couve Refogada ao pedido">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <!-- Card para Farofa Especial -->
+            <div class="card-emoji" aria-hidden="true">🍲</div>
+            <h3>Farofa Especial</h3>
+            <img src="../starter-feijoada/imagens/img4.jpeg" alt="Porção de farofa especial">
+            <p>Farofa especial feita com farinha de mandioca torrada, bacon em cubos, cebola, alho, manteiga e temperos caseiros.</p>
+            <p class="price">R$ <span>10,00</span></p>
+            <button type="button" class="btn-add" aria-label="Adicionar Farofa Especial ao pedido">Adicionar</button>
+          </article>
+
         </div>
+        <!-- Fim da grade de cards -->
+
         <div class="pedido-box" role="status" aria-live="polite" aria-atomic="true">
-          <strong>Pedido:</strong> <span id="contador-pedido">0</span> item(ns)
+          <!-- Caixa de status do pedido -->
+          <strong>Pedido:</strong> <span id="contador-pedido">0</span> item(s)
         </div>
       </div>
     </section>
 
     <section id="contato" aria-labelledby="contato-titulo" class="section">
+      <!-- Seção contato: formulário para entrar em contato -->
       <div class="container">
         <h2 id="contato-titulo">Fale conosco</h2>
+        <!-- Título da seção contato -->
         <form class="form" novalidate>
+          <!-- Formulário de contato -->
           <div class="form-row">
             <label for="nome">Nome</label>
             <input id="nome" name="nome" type="text" required aria-required="true" />
@@ -123,14 +194,20 @@ Bebida leve e refrescante preparada com limão fresco, açúcar e gelo.</p>
         </form>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer" role="contentinfo">
+    <!-- Rodapé do site -->
     <div class="container">
       <p>&copy; <span id="ano"></span> Casa da Feijoada. Projeto educacional — Web Design Híbrido.</p>
+      <!-- Copyright e informações do projeto -->
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <!-- Link para o arquivo JavaScript externo -->
+
 </body>
 </html>
+<!-- Fim do documento HTML -->
